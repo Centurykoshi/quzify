@@ -1,122 +1,66 @@
+"use client";
 
+import type { User } from "next-auth";
+import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import UserAvatar from "./UserAvatar";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { LogOut } from "lucide-react";
 
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+type Props = {
+  user: Pick<User, "name" | "image" | "email">;
+};
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+const UserAccountNav = ({ user }: Props) => {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger>
+        <UserAvatar
+          className="w-10 h-10"
+          user={{
+            name: user.name || null,
+            image: user.image || null,
+          }}
+        />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="bg-white" align="end">
+        <div className="flex items-center justify-start gap-2 p-2">
+          <div className="flex flex-col space-y-1 leading-none">
+            {user.name && <p className="font-medium">{user.name}</p>}
+            {user.email && (
+              <p className="w-[200px] truncate text-sm text-zinc-700">
+                {user.email}
+              </p>
+            )}
+          </div>
+        </div>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem asChild>
+          <Link href="/">Meow</Link>
+        </DropdownMenuItem>
 
-generator client {
-  provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
-}
+        <DropdownMenuSeparator />
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
+        <DropdownMenuItem
+          onSelect={(event) => {
+            event.preventDefault();
+            signOut().catch(console.error);
+          }}
+          className="text-red-600 cursor-pointer"
+        >
+          Sign out
+          <LogOut className="w-4 h-4 ml-2 " />
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
-model Account {
-  id                String  @id @default(uuid())
-  createdAt         DateTime 
-  updatedAt         DateTime 
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? 
-  access_token      String? 
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? 
-  session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-  @@index([userId])
-  
-  @@map("accounts")
-}
-
-model Verification {
-  id        String    @id @default(uuid())
-  createdAt DateTime?
-  updatedAt DateTime?
-
-  identifier String
-  value      String
-  expiresAt  DateTime
-
-  @@map("verifications")
-}
-
-model Session {
-  id           String   @id @default(uuid())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-  
-  @@map("sessions")
-}
-
-model User {
-  id            String    @id @default(uuid())
-  createdAt     DateTime 
-  updatedAt     DateTime
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  games         Game[]
-  accounts      Account[]
-  sessions      Session[]
-   @@map("users")
-}
-
-enum GameType {
-  mcq
-  open_ended
-}
-
-model Game {
-  id          String     @id @default(uuid())
-  userId      String
-  questions   Question[]
-  timeStarted DateTime
-  topic       String
-  timeEnded   DateTime?
-  gameType    GameType
-  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-  @@map("games")
-}
-
-model topic_count {
-  id    String @id @default(uuid())
-  topic String @unique
-  count Int
-}
-
-model Question {
-  id                String   @id @default(uuid())
-  question          String
-  answer            String
-  gameId            String
-  options           Json? // for mcq questions
-  percentageCorrect Float? // for open_ended questions
-  isCorrect         Boolean? // for mcq questions
-  questionType      GameType
-  userAnswer        String?
-
-  game Game @relation(fields: [gameId], references: [id])
-
-  @@index([gameId])
-  @@map("questions")
-}
+export default UserAccountNav;
