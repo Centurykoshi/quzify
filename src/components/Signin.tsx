@@ -3,7 +3,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth-clinet";
@@ -11,7 +10,6 @@ import { FaGoogle } from "react-icons/fa";
 import { Mail, Lock, Eye, EyeOff, Ghost } from "lucide-react";
 import { use, useState } from "react";
 import { toast } from "sonner";
-import { auth } from "@/lib/auth";
 import Link from "next/link";
 
 const SignInPage = () => { 
