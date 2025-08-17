@@ -1,22 +1,24 @@
 "use client"; 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+
 import { authClient } from "@/lib/auth-clinet";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { 
-  Brain, 
-  Lightbulb, 
+
+
   Target, 
-  Zap, 
-  Users, 
+
+
   Trophy,
-  ArrowRight,
+
   LayoutDashboard,
   BookOpen,
-  Sparkles
+  Sparkles,
+
+  SearchCheckIcon
 } from "lucide-react";
 
 export default function Home() {
@@ -36,26 +38,20 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex items-center justify-center min-h-screen bg-background">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="text-center space-y-8">
           {/* Logo/Brand */}
           <div className="flex items-center justify-center gap-3">
             <div className="rounded-lg border-2 border-b-4 border-r-4 border-border px-4 py-2 text-3xl font-bold transition-all hover:-translate-y-[2px]">
-              Quzify
+              Centuriz
             </div>
             <Sparkles className="h-8 w-8" />
           </div>
 
           {/* Main Heading */}
           <div className="space-y-4">
-            <h1 className="text-5xl font-bold tracking-tight md:text-6xl">
-              Test Your Knowledge with{" "}
-              <span className="underline decoration-2 underline-offset-4">
-                AI-Powered Quizzes
-              </span>
-            </h1>
             <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
               Create personalized quizzes on any topic, get instant feedback, and track your progress. 
               Perfect for studying, teaching, or just having fun!
@@ -100,11 +96,11 @@ export default function Home() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader className="text-center">
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border">
-                <Brain className="h-8 w-8" />
+                <SearchCheckIcon className="h-8 w-8" />
               </div>
               <CardTitle>AI-Generated Questions</CardTitle>
               <CardDescription>
-                Our advanced AI creates unique, challenging questions tailored to your chosen topic
+                Just Better Than your knowledge
               </CardDescription>
             </CardHeader>
           </Card>
@@ -134,87 +130,7 @@ export default function Home() {
           </Card>
         </div>
 
-        {/* How It Works Section */}
-        <div className="mt-24">
-          <h2 className="text-center text-3xl font-bold mb-12">
-            How Quzify Works
-          </h2>
-          <div className="grid gap-8 md:grid-cols-4">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 font-bold text-lg">
-                1
-              </div>
-              <h3 className="font-semibold mb-2">Choose a Topic</h3>
-              <p className="text-muted-foreground text-sm">
-                Enter any subject you want to learn about
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 font-bold text-lg">
-                2
-              </div>
-              <h3 className="font-semibold mb-2">AI Creates Quiz</h3>
-              <p className="text-muted-foreground text-sm">
-                Our AI generates personalized questions
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 font-bold text-lg">
-                3
-              </div>
-              <h3 className="font-semibold mb-2">Take the Quiz</h3>
-              <p className="text-muted-foreground text-sm">
-                Answer questions at your own pace
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border-2 font-bold text-lg">
-                4
-              </div>
-              <h3 className="font-semibold mb-2">Get Results</h3>
-              <p className="text-muted-foreground text-sm">
-                Review your performance and learn
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className="mt-24 rounded-2xl border px-8 py-16 text-center">
-          <h2 className="text-3xl font-bold mb-8">Join the Learning Revolution</h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            <div>
-              <div className="text-4xl font-bold mb-2">AI-Powered</div>
-              <div className="text-muted-foreground">Smart Question Generation</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">Unlimited</div>
-              <div className="text-muted-foreground">Quiz Topics Available</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">Instant</div>
-              <div className="text-muted-foreground">Feedback & Results</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Final CTA */}
-        <div className="mt-24 text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Learning?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Join thousands of learners using Quzify to enhance their knowledge
-          </p>
-          <Button 
-            onClick={signInWithGoogle}
-            size="lg" 
-            className="px-12 py-4 text-lg cursor-pointer"
-          >
-            Get Started for Free
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </div>
+    
       </div>
     </div>
   ); 
