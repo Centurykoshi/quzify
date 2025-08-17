@@ -19,7 +19,7 @@ const History = async (props: Props) => {
     return redirect("/");
   }
   return (
-    <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[400px]">
+    <div className="fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[400px]">
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">

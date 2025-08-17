@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
-import WordCloud from "../WordClould";
+import WordCloud from "../WordCloud";
 
 export default async function HotTopicsCard(){ 
     const topics = await prisma.topic_count.findMany({}); 

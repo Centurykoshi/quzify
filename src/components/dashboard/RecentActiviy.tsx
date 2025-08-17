@@ -14,7 +14,6 @@ import Link from "next/link";
 
 import { redirect } from "next/navigation";
 import HistoryCard from "./HistoryCard";
-import WordCloud from "react-d3-cloud";
 import History from "@/app/history/page";
 import HistoryComponent from "../HistoryComponent";
 
