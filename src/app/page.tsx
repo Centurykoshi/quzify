@@ -12,7 +12,7 @@ import {
   Target, 
 
 
-  
+
   Trophy,
 
   LayoutDashboard,
@@ -82,7 +82,7 @@ export default function Home() {
                   Dashboard
                 </Button>
               </Link>
-              <Link href="/quiz">
+              <Link href="/Quiz">
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg cursor-pointer">
                   <BookOpen className="mr-2 h-5 w-5" />
                   Take Quiz
