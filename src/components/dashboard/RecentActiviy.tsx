@@ -15,6 +15,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import HistoryCard from "./HistoryCard";
 import WordCloud from "react-d3-cloud";
+import History from "@/app/history/page";
+import HistoryComponent from "../HistoryComponent";
 
 export default async function RecentActivityCard() {
     const session = await auth.api.getSession({
@@ -44,7 +46,7 @@ export default async function RecentActivityCard() {
                 </CardDescription>
             </CardHeader>
             <CardContent className="max-h-[580px] overflow-x-auto  p-4">
-              
+                <HistoryComponent limit={10} userId={session.user.id} />
             </CardContent>
 
 

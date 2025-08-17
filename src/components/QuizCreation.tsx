@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/card";
 import { toast } from "sonner";
 import { useTRPC } from "@/trpc/client";
+import LoadingQuestions from "./LoadingQuestion";
 
 type Props = {
     topic: string;
@@ -43,7 +44,7 @@ const QuizCreation = ({ topic }: Props) => {
 
     const form = useForm<QuizCreationInput>({
         resolver: zodResolver(quizCreationSchema),
-        defaultValues: { topic: "", type: "mcq", amount: 1 },
+        defaultValues: { topic: "Pokemon", type: "mcq", amount: 5 },
     });
 
     const { mutateAsync: getQuestion, isPending } = useMutation(trpc.game.create.mutationOptions({
@@ -97,6 +98,10 @@ const QuizCreation = ({ topic }: Props) => {
             toast.error(`Error creating quiz: ${error}`);
         }
     };
+    form.watch(); 
+    if(showLoader){ 
+        return <LoadingQuestions finished={finishedLoading} />;
+    }
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh]">

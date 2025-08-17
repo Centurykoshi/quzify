@@ -20,6 +20,7 @@ const Quiz = async ({ searchParams }: Props) => {
     const session = await auth.api.getSession({
         headers: await headers(),
     }); 
+    const { topic } = await searchParams;
 
     if(!session?.user) {
         redirect("/");
@@ -27,7 +28,7 @@ const Quiz = async ({ searchParams }: Props) => {
 
     return (
         <h1 className="">
-          <QuizPage topic={searchParams.topic ?? ""} />
+          <QuizPage topic={topic ?? ""} />
         </h1>
     );
 }; 

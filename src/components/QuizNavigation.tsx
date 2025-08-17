@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Loader2, Brain, BookOpen } from "lucide-react";
 import { useTRPC } from "@/trpc/client";
@@ -39,6 +39,11 @@ const QuizNavigation = ({
   const canGoPrevious = currentIndex > 0;
   const isLastQuestion = currentIndex === totalQuestions - 1;
   const [explanation, setExplanation] = useState("");
+  
+  // Reset explanation when question changes
+  useEffect(() => {
+    setExplanation("");
+  }, [currentIndex]);
   
   // tRPC setup for generating explanations
   const trpc = useTRPC();
@@ -153,14 +158,14 @@ const QuizNavigation = ({
           
           {/* Explanation Display */}
           {(explanation || generateExplanationMutation.isPending) && (
-            <div className="w-full max-w-2xl p-4 bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-lg">
+            <div className="w-full max-w-2xl p-4 rounded-none border">
               {generateExplanationMutation.isPending ? (
-                <div className="flex items-center space-x-2 text-blue-700 dark:text-blue-300">
+                <div className="flex items-center space-x-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
                   <span>Generating explanation...</span>
                 </div>
               ) : (
-                <p className="text-blue-800 dark:text-blue-200 whitespace-pre-wrap">{explanation}</p>
+                <p className=" whitespace-pre-wrap">{explanation}</p>
               )}
             </div>
           )}

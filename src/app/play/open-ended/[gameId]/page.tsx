@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import prisma from "@/lib/prisma";
+import OpenEnded from "@/components/OpenEnded";
 
 type Props = {
     params: {
@@ -41,7 +42,7 @@ const openEndedPage = async ({ params }: Props) => {
     }
 
     
-    return <div>Open Ended Game Page - {gameId}</div>; // TODO: Add OpenEnded component
+    return <OpenEnded game={game} />;
 }; 
 
 export default openEndedPage; 

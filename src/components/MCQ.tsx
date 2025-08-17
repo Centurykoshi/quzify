@@ -229,16 +229,16 @@ const MCQ = ({ game }: Props) => {
     }
 
     return (
-        <div className="absolute -translate-x-1/2 -translate-y-1/2 md:w-[80vw] max-w-4xl w-[90vw] top-1/2 left-1/2">
+        <div className="fixed -translate-x-1/2 -translate-y-1/2 md:w-[80vw] max-w-4xl w-[90vw] top-1/2 left-1/2">
             <div className="flex flex-row justify-between">
                 <div className="flex flex-col">
                     <p>
-                        <span className="text-slate-400">Topic</span> &nbsp;
+                        <span className=" text-xl">Topic : </span> &nbsp;
                         <span className="px-2 py-1 text-white rounded-lg bg-slate-800">
                             {game.topic}
                         </span>
                     </p>
-                    <div className="flex self-start mt-3 text-slate-400">
+                    <div className="flex self-start mt-3 ">
                         <Timer className="mr-2" />
                         {formatTimeDelta(differenceInSeconds(now, game.timeStarted))}
                     </div>
@@ -263,10 +263,10 @@ const MCQ = ({ game }: Props) => {
             </Card>
             <div className="flex flex-col items-center justify-center w-full mt-4">
                 {options.length === 0 ? (
-                    <div className="p-4 text-center text-gray-500">
+                    <div className="p-4 text-center ">
                         <p>No options available for this question.</p>
                         <p className="text-sm mt-2">Debug info:</p>
-                        <pre className="text-xs bg-gray-100 p-2 rounded mt-2">
+                        <pre className="text-xs p-2 rounded mt-2">
                             {JSON.stringify({
                                 hasCurrentQuestion: !!currentQuestion,
                                 questionId: currentQuestion?.id,
@@ -297,7 +297,7 @@ const MCQ = ({ game }: Props) => {
                                     "justify-start w-full py-8 mb-4 cursor-pointer transition-all",
                                     isCorrectOption && shouldShowFeedback && "bg-green-600 hover:bg-green-700",
                                     isWrongOption && shouldShowFeedback && "bg-red-600 hover:bg-red-700",
-                                    !hasAnswered && !isSelected && "hover:bg-gray-100"
+                                    !hasAnswered && !isSelected 
                                 )}
                                 onClick={() => {
                                     console.log(`Clicked option ${index}, hasAnswered: ${hasAnswered}`);
