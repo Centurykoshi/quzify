@@ -75,6 +75,7 @@ export default function Home() {
               Sign in with Google
             </Button>
             
+            
             <div className="flex gap-2">
               <Link href="/dashboard">
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg cursor-pointer">
