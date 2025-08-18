@@ -44,7 +44,7 @@ const QuizCreation = ({ topic }: Props) => {
 
     const form = useForm<QuizCreationInput>({
         resolver: zodResolver(quizCreationSchema),
-        defaultValues: { topic: "Pokemon", type: "mcq", amount: 5 },
+        defaultValues: { topic: topic || "Pokemon", type: "mcq", amount: 5 },
     });
 
     const { mutateAsync: getQuestion, isPending } = useMutation(trpc.game.create.mutationOptions({
@@ -104,29 +104,33 @@ const QuizCreation = ({ topic }: Props) => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[80vh]">
-            <Card className="w-[80vw] max-w-2xl rounded-none">
-                <CardHeader className="flex flex-col items-center justify-between space-y-0">
-                    <CardTitle className="text-2xl">
+        <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 sm:px-6 ">
+            <Card className="w-full max-w-2xl rounded-lg">
+                <CardHeader className="flex flex-col items-center justify-between space-y-2 px-4 sm:px-6 py-4 sm:py-6">
+                    <CardTitle className="text-xl sm:text-2xl text-center">
                         Quiz Creation
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-center text-sm sm:text-base">
                         Choose a topic
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="px-4 sm:px-6">
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
                             <FormField
                                 control={form.control}
                                 name="topic"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Topic</FormLabel>
+                                        <FormLabel className="text-sm sm:text-base">Topic</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="Enter a topic" {...field} />
+                                            <Input 
+                                                placeholder="Enter a topic" 
+                                                {...field} 
+                                                className="text-sm sm:text-base h-10 sm:h-11"
+                                            />
                                         </FormControl>
-                                        <FormDescription>
+                                        <FormDescription className="text-xs sm:text-sm">
                                             Please provide any topic you would like to be quizzed on here.
                                         </FormDescription>
                                         <FormMessage />
@@ -138,7 +142,7 @@ const QuizCreation = ({ topic }: Props) => {
                                 name="amount"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Number of Questions</FormLabel>
+                                        <FormLabel className="text-sm sm:text-base">Number of Questions</FormLabel>
                                         <FormControl>
                                             <Input
                                                 placeholder="How many questions?"
@@ -149,9 +153,10 @@ const QuizCreation = ({ topic }: Props) => {
                                                 }}
                                                 min={1}
                                                 max={20}
+                                                className="text-sm sm:text-base h-10 sm:h-11"
                                             />
                                         </FormControl>
-                                        <FormDescription>
+                                        <FormDescription className="text-xs sm:text-sm">
                                             You can choose how many questions you would like to be quizzed on here.
                                         </FormDescription>
                                         <FormMessage />
@@ -163,23 +168,23 @@ const QuizCreation = ({ topic }: Props) => {
                                 name="type"
                                 render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel> Quiz Type </FormLabel>
+                                    <FormLabel className="text-sm sm:text-base"> Quiz Type </FormLabel>
                             
                                 <FormControl>
                       
-                            <div className="flex justify-between">
+                            <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
                                 <Button
                                     variant={form.getValues("type") === "mcq" ? "default" : "secondary"}
-                                    className="w-1/2 rounded-none "
+                                    className="w-full sm:w-1/2 rounded-lg sm:rounded-r-none text-sm sm:text-base py-2 sm:py-3"
                                     onClick={() => form.setValue("type", "mcq")}
                                     type="button"
                                 >
                                     <CopyCheck className="w-4 h-4 mr-2" /> Multiple Choice
                                 </Button>
-                                <Separator orientation="vertical" />
+                                <Separator orientation="vertical" className="hidden sm:block" />
                                 <Button
                                     variant={form.getValues("type") === "open_ended" ? "default" : "secondary"}
-                                    className="w-1/2 rounded-none"
+                                    className="w-full sm:w-1/2 rounded-lg sm:rounded-l-none text-sm sm:text-base py-2 sm:py-3"
                                     onClick={() => form.setValue("type", "open_ended")}
                                     type="button"
                                 >
@@ -187,7 +192,7 @@ const QuizCreation = ({ topic }: Props) => {
                                 </Button>
                             </div>
                             </FormControl>
-                            <FormDescription>
+                            <FormDescription className="text-xs sm:text-sm">
                                 Choose Between Multiple choice or open-ended questions.
                             </FormDescription>
                             <FormMessage />
@@ -195,8 +200,11 @@ const QuizCreation = ({ topic }: Props) => {
     )}
     />
 
-
-                            <Button disabled={isPending} type="submit" className="w-full">
+                            <Button 
+                                disabled={isPending} 
+                                type="submit" 
+                                className="w-full text-sm sm:text-base py-2 sm:py-3 mt-6"
+                            >
                                 Submit
                             </Button>
                         </form>

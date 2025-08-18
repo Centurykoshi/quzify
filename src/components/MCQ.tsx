@@ -229,39 +229,42 @@ const MCQ = ({ game }: Props) => {
     }
 
     return (
-        <div className="fixed -translate-x-1/2 -translate-y-1/2 md:w-[80vw] max-w-4xl w-[90vw] top-1/2 left-1/2">
-            <div className="flex flex-row justify-between">
+        <div className="min-h-screen flex items-center justify-center p-2 sm:p-4">
+            <div className="w-[95vw] sm:w-[90vw] md:w-[90vw] max-w-4xl max-h-[90vh] overflow-x-auto">
+                <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-0">
                 <div className="flex flex-col">
-                    <p>
-                        <span className=" text-xl">Topic : </span> &nbsp;
-                        <span className="px-2 py-1 text-white rounded-lg bg-slate-800">
+                    <p className="text-sm sm:text-base">
+                        <span className="text-lg sm:text-xl">Topic : </span> &nbsp;
+                        <span className="px-2 py-1 text-white rounded-lg bg-slate-800 text-sm sm:text-base">
                             {game.topic}
                         </span>
                     </p>
-                    <div className="flex self-start mt-3 ">
-                        <Timer className="mr-2" />
+                    <div className="flex self-start mt-2 sm:mt-3 text-sm sm:text-base">
+                        <Timer className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                         {formatTimeDelta(differenceInSeconds(now, game.timeStarted))}
                     </div>
                 </div>
-                <MCQCounter
-                    correct_answers={stats.correct_answers}
-                    wrong_answers={stats.wrong_answers}
-                />
+                <div className="flex justify-end sm:justify-start">
+                    <MCQCounter
+                        correct_answers={stats.correct_answers}
+                        wrong_answers={stats.wrong_answers}
+                    />
+                </div>
             </div>
             <Card className="w-full mt-4">
-                <CardHeader className="flex flex-row items-center">
-                    <CardTitle className="mr-5 text-center divide-y divide-zinc-600/50">
-                        <div>{questionIndex + 1}</div>
-                        <div className="text-base text-slate-400">
+                <CardHeader className="flex flex-row items-center gap-3 p-4 sm:p-6">
+                    <CardTitle className="text-center divide-y min-w-[20px] sm:min-w-[30px] mr-3 sm:mr-5 flex-shrink-0 ">
+                        <div className="text-lg sm:text-xl lg:text-2xl">{questionIndex + 1}</div>
+                        <div className="text-xs sm:text-sm lg:text-base">
                             {game.questions.length}
                         </div>
                     </CardTitle>
-                    <CardDescription className="flex-grow text-lg">
+                    <CardDescription className="flex-grow text-sm sm:text-base lg:text-lg leading-relaxed">
                         {currentQuestion?.question}
                     </CardDescription>
                 </CardHeader>
             </Card>
-            <div className="flex flex-col items-center justify-center w-full mt-4">
+            <div className="flex flex-col items-center justify-center w-full mt-4 space-y-3 sm:space-y-4">
                 {options.length === 0 ? (
                     <div className="p-4 text-center ">
                         <p>No options available for this question.</p>
@@ -294,7 +297,7 @@ const MCQ = ({ game }: Props) => {
                                         : "outline"
                                 }
                                 className={cn(
-                                    "justify-start w-full py-8 mb-4 cursor-pointer transition-all",
+                                    "justify-start w-full py-6 sm:py-8 mb-3 sm:mb-4 cursor-pointer transition-all text-left",
                                     isCorrectOption && shouldShowFeedback && "bg-green-600 hover:bg-green-700",
                                     isWrongOption && shouldShowFeedback && "bg-red-600 hover:bg-red-700",
                                     !hasAnswered && !isSelected 
@@ -308,11 +311,11 @@ const MCQ = ({ game }: Props) => {
                                 }}
                                 disabled={hasAnswered}
                             >
-                                <div className="flex items-center justify-start">
-                                    <div className="p-2 px-3 mr-5 border rounded-md">
+                                <div className="flex items-start sm:items-center justify-start w-full">
+                                    <div className="p-2 px-3 mr-3 sm:mr-5 border rounded-md flex-shrink-0 text-sm sm:text-base">
                                         {index + 1}
                                     </div>
-                                    <div className="text-start">{option}</div>
+                                    <div className="text-start text-sm sm:text-base leading-relaxed">{option}</div>
                                 </div>
                             </Button>
                         );
@@ -337,6 +340,7 @@ const MCQ = ({ game }: Props) => {
                     userAnswer={currentAnswer?.userAnswer || ""}
                     isCorrect={currentAnswer?.isCorrect || false}
                 />
+            </div>
             </div>
         </div>
     );
