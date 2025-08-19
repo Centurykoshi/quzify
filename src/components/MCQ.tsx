@@ -230,7 +230,7 @@ const MCQ = ({ game }: Props) => {
 
     return (
         <div className="min-h-screen flex items-center justify-center p-2 sm:p-4">
-            <div className="w-[95vw] sm:w-[90vw] md:w-[90vw] max-w-4xl max-h-[90vh] overflow-x-auto">
+            <div className="w-[95vw] sm:w-[90vw] md:w-[90vw] max-w-4xl max-h-[100vh] ">
                 <div className="flex flex-col sm:flex-row justify-between gap-4 sm:gap-0">
                 <div className="flex flex-col">
                     <p className="text-sm sm:text-base">

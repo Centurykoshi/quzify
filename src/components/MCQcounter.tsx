@@ -10,14 +10,18 @@ type Props = {
 
 const MCQCounter = ({ correct_answers, wrong_answers }: Props) => {
   return (
-    <Card className="flex flex-row items-center justify-center p-2">
-      <CheckCircle2 color="green" size={30} />
-      <span className="mx-3 text-2xl text-[green]">{correct_answers}</span>
+    <Card className="flex flex-row items-center justify-center px-4 py-2 gap-4">
+      <div className="flex items-center gap-2">
+        <CheckCircle2 className="h-6 w-6 text-green-300" />
+        <span className="text-xl font-semibold">{correct_answers}</span>
+      </div>
 
-      <Separator orientation="vertical" />
+      <div className="h-6 w-px bg-border" />
 
-      <span className="mx-3 text-2xl text-[red]">{wrong_answers}</span>
-      <XCircle color="red" size={30} />
+      <div className="flex items-center gap-2">
+        <span className="text-xl font-semibold">{wrong_answers}</span>
+        <XCircle className="h-6 w-6 text-red-300" />
+      </div>
     </Card>
   );
 };

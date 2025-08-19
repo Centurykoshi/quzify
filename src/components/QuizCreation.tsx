@@ -104,8 +104,8 @@ const QuizCreation = ({ topic }: Props) => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 sm:px-6 ">
-            <Card className="w-full max-w-2xl rounded-lg">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 ">
+            <Card className="w-full max-w-2xl ">
                 <CardHeader className="flex flex-col items-center justify-between space-y-2 px-4 sm:px-6 py-4 sm:py-6">
                     <CardTitle className="text-xl sm:text-2xl text-center">
                         Quiz Creation
