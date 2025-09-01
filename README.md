@@ -1,9 +1,9 @@
-# 🎯 Storyset - The Quiz App
+# 🎯 Centuriz - The Quiz App
 
-Storyset is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
+Centuriz is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
 It is designed for interactive learning, AI-powered quiz generation, and a clean, responsive UI.
 
-🌐 **Live Demo:** [Storyset on Vercel](https://centuriz1.vercel.app/)  
+🌐 **Live Demo:** [Centuriz on Vercel](https://centuriz1.vercel.app/)  
 📂 **Repository:** [GitHub Repo](https://github.com/Centurykoshi/quzify)
 
 ---
