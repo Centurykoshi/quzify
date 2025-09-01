@@ -1,9 +1,9 @@
-# 🎯 Centuriz - The Quiz App
+# 🎯 Storyset - The Quiz App
 
-Centuriz is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
+Storyset is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
 It is designed for interactive learning, AI-powered quiz generation, and a clean, responsive UI.
 
-🌐 **Live Demo:** [Centuriz on Vercel](https://centuriz1.vercel.app/)  
+🌐 **Live Demo:** [Storyset on Vercel](https://centuriz1.vercel.app/)  
 📂 **Repository:** [GitHub Repo](https://github.com/Centurykoshi/quzify)
 
 ---
@@ -20,19 +20,43 @@ It is designed for interactive learning, AI-powered quiz generation, and a clean
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** Next.js 14, React, TypeScript  
-- **Styling:** Tailwind CSS, Shadcn/UI  
-- **Forms & Validation:** React Hook Form, Zod  
-- **State Management:** React Query (TanStack)  
-- **Backend (planned):** Prisma + Inngest for workflows  
-- **Deployment:** Vercel  
+### Frameworks & Languages
+- **Next.js 14** (React framework)
+- **React**
+- **TypeScript**
 
----
+### Styling & UI
+- **Tailwind CSS** (utility-first CSS)
+- **shadcn/ui** (component library)
+- **Radix UI Primitives** (Accordion, Dialog, Checkbox, Avatar, Dropdown, Tabs, Tooltip, and more)
+- **Lucide React** (icon library)
+- **Embla Carousel** (carousel/slider)
 
-## 📸 Preview
+### Forms & Validation
+- **React Hook Form**
+- **Zod** (schema validation)
+- **@hookform/resolvers**
 
-![Centuriz Screenshot](https://centuriz1.vercel.app/og.png)  
-*(Optional: Add your own screenshots or demo GIF here)*
+### State Management & Data
+- **React Query (TanStack Query)**
+- **tRPC** (API & RPC, client/server)
+- **Prisma** (ORM, planned)
+- **Inngest** (workflows, planned)
+
+### AI & Utilities
+- **@google/generative-ai** (AI integration)
+- **better-auth** (authentication)
+- **cmdk** (command menu)
+- **class-variance-authority / clsx** (conditional class handling)
+- **client-only**
+- **d3-cloud** (word cloud visualizations)
+- **date-fns** (date utilities)
+- **fastest-levenshtein** (string similarity)
+- **input-otp** (OTP input)
+
+### Developer Experience
+- **Vercel** (deployment)
+- **ESLint** (linting, via `next lint` script)
 
 ---
 
@@ -50,3 +74,17 @@ npm install
 
 # 3. Start the development server
 npm run dev
+```
+
+---
+
+## 📦 More
+
+See the full list of dependencies and scripts in [`package.json`](https://github.com/Centurykoshi/quzify/blob/main/package.json).  
+*Some features (like advanced AI quiz generation and backend workflows) are in development and coming soon!*
+
+---
+
+## 🙏 Credits
+
+- Loading animation by [Storyset](https://storyset.com/).
