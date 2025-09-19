@@ -23,7 +23,7 @@ export const questionGenerationSchema = z.object({
       message: "Topic must be at most 50 characters long",
     }),
   type: z.enum(["mcq", "open_ended"]),
-  amount: z.number().min(1).max(20), // Lower max for AI generation
+  amount: z.number().min(1).max(50), // Lower max for AI generation
 });
 
 // Export types for TypeScript
