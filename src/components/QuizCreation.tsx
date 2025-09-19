@@ -152,7 +152,7 @@ const QuizCreation = ({ topic }: Props) => {
                                                     form.setValue("amount", parseInt(e.target.value));
                                                 }}
                                                 min={1}
-                                                max={20}
+                                                max={50}
                                                 className="text-sm sm:text-base h-10 sm:h-11"
                                             />
                                         </FormControl>
