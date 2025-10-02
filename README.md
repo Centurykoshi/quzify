@@ -1,9 +1,9 @@
-# 🎯 Centuriz - The Quiz App
+# 🎯 Poornima's Quiz - The Quiz App
 
-Centuriz is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
+Poornima's Quiz is a modern quiz application built with **Next.js**, featuring both **MCQ (Multiple Choice Questions)** and **Open-ended questions**.  
 It is designed for interactive learning, AI-powered quiz generation, and a clean, responsive UI.
 
-🌐 **Live Demo:** [Centuriz on Vercel](https://centuriz1.vercel.app/)  
+🌐 **Live Demo:** [Poornima's Quiz on Vercel](https://centuriz1.vercel.app/)  
 📂 **Repository:** [GitHub Repo](https://github.com/Centurykoshi/quzify)
 
 ---
