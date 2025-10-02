@@ -29,7 +29,7 @@ export default async function HotTopicsCard(){
             </CardHeader>
 
             <CardContent className="pl-2">
-                <div className="h-64 cursor-pointer">
+                <div className="min-h-64 cursor-pointer">
                     <WordCloud formattedTopics={formattedTopics} />
                 </div>
             </CardContent>
