@@ -55,7 +55,7 @@ const SignUpPage = () => {
                 toast.error(result.error.message || "Failed to create account. Please try again.");
             }
             else {
-                toast.success("Account created successfully! Please check your email to verify.");
+                toast.success("Account created successfully! Please Login with your email to acess, Thank you .");
             }
         } catch (error) {
             toast.error("Failed to create account. Please try again.");
