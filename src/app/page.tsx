@@ -21,7 +21,7 @@ export default function Home() {
           <div className="space-y-4">
             <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
               Create personalized quizzes on any topic, get instant feedback, and track your progress. 
-              Perfect for studying, teaching, or just having fun! Made by : Poornima Pulau 
+              Perfect for studying, teaching, or just having fun!
             </p>
           </div>
 
