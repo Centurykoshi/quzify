@@ -12,7 +12,7 @@ export default function Home() {
           {/* Logo/Brand */}
           <div className="flex items-center justify-center gap-3">
             <div className="rounded-lg border-2 border-b-4 border-r-4 border-border px-4 py-2 text-3xl font-bold transition-all hover:-translate-y-[2px]">
-              Poornima's Quiz 
+              Centuriz 
             </div>
             <Sparkles className="h-8 w-8" />
           </div>
