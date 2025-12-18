@@ -15,9 +15,6 @@ const nextConfig: NextConfig = {
     // Enable the experimental `isolatedModules` flag
     ignoreBuildErrors: true,
   },
-  eslint : { 
-    ignoreDuringBuilds: true, 
-  }, 
 };
 
 export default nextConfig;
