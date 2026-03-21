@@ -67,7 +67,7 @@ const SignInPage = () => {
             <Card className="w-full max-w-md shadow-xl">
                 <CardHeader className="space-y-1 text-center">
                     <CardTitle className="text-3xl font-bold tracking-tight">
-                        Welcome to Poornima's Quiz
+                        Welcome to Centuriz's Quiz
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
                         Sign in to your account to continue
