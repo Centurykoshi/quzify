@@ -69,7 +69,7 @@ const SignUpPage = () => {
             <Card className="w-full max-w-md shadow-xl">
                 <CardHeader className="space-y-1 text-center">
                     <CardTitle className="text-3xl font-bold tracking-tight">
-                        Join Poornima's Quiz App 
+                        Join Centuriz's Quiz App 
                     </CardTitle>
                     <CardDescription className="text-muted-foreground">
                         Create your account to get started
